@@ -27,9 +27,9 @@ public class opmode extends LinearOpMode
         if (isStopRequested()) return;
         while (opModeIsActive())
         {
-            double y = -gamepad1.left_stick_x;
-            double x = gamepad1.left_stick_y;
-            double rotate = 0.6 * gamepad1.right_stick_x;
+            double y = -gamepad1.left_stick_y;
+            double x = gamepad1.left_stick_x;
+            double rotate = -0.6 * gamepad1.right_stick_x;
             double speed = gamepad1.right_trigger;
             double armPower = gamepad2.right_stick_y;
 
@@ -44,7 +44,7 @@ public class opmode extends LinearOpMode
 
             if (canToggleRotation && gamepad2.right_bumper)
             {
-                clawPos = Math.abs(rotationPos - 1);
+                rotationPos = Math.abs(rotationPos - 1);
                 canToggleRotation = false;
             } else if (!gamepad2.right_bumper)
             {
@@ -54,6 +54,8 @@ public class opmode extends LinearOpMode
             allParts.drive0(y, x, rotate, speed);
             allParts.setArmPower(armPower);
             allParts.setClawPos(clawPos);
+            allParts.setRotationPos(rotationPos
+            );
         }
 
 

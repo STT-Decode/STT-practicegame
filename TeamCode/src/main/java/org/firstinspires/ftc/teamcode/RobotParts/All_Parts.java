@@ -32,6 +32,7 @@ public class All_Parts
         rb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         lf.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         lb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
 
