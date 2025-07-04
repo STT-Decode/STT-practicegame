@@ -39,29 +39,15 @@ public class All_Parts
 
     public void drive0(double forward, double right, double rotate, double power)
     {
-        double leftFrontPower = -forward - right + rotate;
-        double rightFrontPower = -forward + right - rotate;
-        double rightRearPower = -forward - right - rotate;
-        double leftRearPower = -forward + right + rotate;
+        double leftFrontPower = (-forward - right + rotate) * power;
+        double rightFrontPower = (-forward + right - rotate) * power;
+        double rightRearPower = (-forward - right - rotate) * power;
+        double leftRearPower = (-forward + right + rotate) * power;
 
-        maxPower = power;
-        maxPower = Math.max(maxPower, Math.abs(leftFrontPower));
-        maxPower = Math.max(maxPower, Math.abs(rightFrontPower));
-        maxPower = Math.max(maxPower, Math.abs(rightRearPower));
-        maxPower = Math.max(maxPower, Math.abs(leftRearPower));
-
-        lf.setPower(leftFrontPower / maxPower);
-        rf.setPower(-rightFrontPower / maxPower);
-        rb.setPower(-rightRearPower / maxPower);
-        lb.setPower(leftRearPower / maxPower);
-    }
-
-    public void drive1(float fl, float fr, float br, float bl, double weight)
-    {
-        lf.setPower(fl / weight);
-        rf.setPower(fr / weight);
-        rb.setPower(br / weight);
-        lb.setPower(bl / weight);
+        lf.setPower(leftFrontPower);
+        rf.setPower(-rightFrontPower);
+        rb.setPower(-rightRearPower);
+        lb.setPower(leftRearPower);
     }
 
     public void setArmPower(double power)

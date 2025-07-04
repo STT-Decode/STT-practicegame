@@ -29,7 +29,7 @@ public class opmode extends LinearOpMode
         {
             double y = -gamepad1.left_stick_y;
             double x = gamepad1.left_stick_x;
-            double rotate = -0.6 * gamepad1.right_stick_x;
+            double rotate = -0.3 * gamepad1.right_stick_x;
             double speed = gamepad1.right_trigger;
             double armPower = gamepad2.right_stick_y;
 
